@@ -1,0 +1,9 @@
+[package]
+name = "top-group"
+version = "0.1.0"
+authors = ["Travis Finkenauer <tmfinken@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+procfs = "0.5"
+size_format = "1.0.2"
