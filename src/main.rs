@@ -6,7 +6,7 @@ use size_format;
 use top_group::*;
 
 fn main() {
-    let procs_grouped = GroupedProcess::new();
+    let procs_grouped = GroupedProcess::new().expect("Failed to get processes");
     println!("{:#?}", procs_grouped);
 
     let mut proc_group_usage: Vec<(&OsStr, u64)> = procs_grouped

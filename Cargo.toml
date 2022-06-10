@@ -5,5 +5,5 @@ authors = ["Travis Finkenauer <tmfinken@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-procfs = "0.5"
+procfs = "0.12"
 size_format = "1.0.2"

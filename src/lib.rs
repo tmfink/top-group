@@ -77,8 +77,8 @@ pub struct GroupedProcess {
 
 impl GroupedProcess {
     /// Creates a new `GroupedProcess` by querying all running processes
-    pub fn new() -> Self {
-        let procs = procfs::all_processes();
+    pub fn new() -> Result<Self, procfs::ProcError> {
+        let procs = procfs::process::all_processes()?;
         let mut procs_grouped: HashMap<OsString, ProcessGroups> = HashMap::new();
         for proc in procs {
             let exe = if let Ok(exe) = proc.exe() {
@@ -111,9 +111,9 @@ impl GroupedProcess {
                 .add_usage(proc.pid(), usage);
         }
 
-        GroupedProcess {
+        Ok(GroupedProcess {
             name_to_group: procs_grouped,
-        }
+        })
     }
 
     /// Name of process to process groups
